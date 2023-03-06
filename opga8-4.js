@@ -6,13 +6,18 @@ function subject(){
         
     }
 
+    const removeObserver = function(observer){
+        const indexOfObserver = observers.indexOf(observer);
+        observers.splice(indexOfObserver, 1);
+    }
+
     const notifyObservers = function(data){
         observers.forEach(element => {
-            console.log(element.name + data);
+            console.log(element + data);
         })
     }
 
-    return {register: registerObserver, notify: notifyObservers};
+    return {register: registerObserver, remove: removeObserver, notify: notifyObservers};
 
 }
 
@@ -28,18 +33,17 @@ function makeSubscriber(name){
 }
 
 // Leger lidt med prototype læsning
-let firstSubscriber = Object.create(subscriber);
-firstSubscriber.name = "Peter";
+let firstSubscriber = "Peter";
 
-let secondSubscriber = Object.create(subscriber);
-secondSubscriber.name = "Dennis";
+let secondSubscriber = "Dennis";
 
-let thirdSubscriber = Object.create(subscriber);
-thirdSubscriber.name = "Anne";
+
+let thirdSubscriber = "Anne";
+
 
 newsPaperSubscription.register(firstSubscriber);
 newsPaperSubscription.register(secondSubscriber);
 newsPaperSubscription.register(thirdSubscriber);
 newsPaperSubscription.notify(" Der er udkommet en ny avis");
-
-
+newsPaperSubscription.remove(secondSubscriber);
+newsPaperSubscription.notify(" Hvem er tilbage");

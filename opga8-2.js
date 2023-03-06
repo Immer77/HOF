@@ -22,6 +22,13 @@ function compareSort(comparator){
     
 }
 
+// Simpler version
+function compareSortOne(comparator){
+    return function(array){
+        return array.sort(comparator);
+    }
+}
+
 function compareLen(s1, s2) {
     return compare(s1.length, s2.length);
 }
