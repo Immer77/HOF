@@ -12,7 +12,7 @@ console.log(persons.find(p => p.tlf === 12312312));
 console.log(persons.reduce((acc, element) => acc > element.alder ? element : acc ,persons[0].alder));
 
 // Modificer array
-console.log(persons.map((e, i) => e.id = i += 1));
+console.log(persons.forEach((e, i) => e.id = i += 1));
 console.log(persons);
 
 // Generer en tekststreng
@@ -24,4 +24,9 @@ console.log(persons.map((person) => person.name).sort((a,b) => a < b ? -1 : 1).r
 //Generer et array med navn og tlf
 console.log(persons.filter((person) => person.alder<30).map((p) => ({name:p.name, tlf:p.tlf})));
 
+
+// Opgave 8.2
+function compareSort(compare){
+    return compare = (a,b) => a < b ? -1 : 1;
+}
 

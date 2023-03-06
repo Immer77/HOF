@@ -1,6 +1,12 @@
 // Opgave 8.2
 let names = ["Peter", "Prut", "Kage", "anne", "Johan", "Oskar"];
 
+/**
+ * tager en comparato som parameter
+ * 
+ * @param {*} comparator Den slags comparator vi har tænkts at bruge eks. compare, compareLen, compareIgnore
+ * @returns en indre sort funktion som bruger den comparator der er i parameteren 
+ */
 function compareSort(comparator){
     return sortFunction = function (stringArray) {
         try {
