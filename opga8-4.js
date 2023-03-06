@@ -13,7 +13,7 @@ function subject(){
 
     const notifyObservers = function(data){
         observers.forEach(element => {
-            console.log(element + data);
+            console.log(element.name + data);
         })
     }
 
@@ -26,19 +26,18 @@ let newsPaperSubscription = subject();
 
 
 
-function makeSubscriber(name){
-    let subscriber = Object.create();
-    subscriber.name = name;
-    return subscriber;
+function Subscriber(name){
+    this.name = name;
+    
 }
 
 // Leger lidt med prototype læsning
-let firstSubscriber = "Peter";
+let firstSubscriber = new Subscriber("Peter");
 
-let secondSubscriber = "Dennis";
+let secondSubscriber = new Subscriber("Dennis");
 
 
-let thirdSubscriber = "Anne";
+let thirdSubscriber = new Subscriber("Anne");
 
 
 newsPaperSubscription.register(firstSubscriber);
